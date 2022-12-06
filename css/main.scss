@@ -1,29 +1,25 @@
-:root {
-    --primary-title-color: #212121;
-    --primary-text-color: #212121;
-    --secondary-title-color: #FFF;
-    --secondary-text-color: #757575;
-    --background-dark-color: #2F303A;
-    --background-light-color: #F5F4FA;
-    --accent-color: #2196F3;  
-    --accent-dark-color: #014379;
-    --icon-color: #AFB1B8;
-    --card-gap: 30px;
-}
-
-/* Global Styles */
+$primaryTitleColor: #212121;
+$primaryTextColor: #212121;
+$secondaryTitleColor: #FFF;
+$secondaryTextColor: #757575;
+$backgroundDarkColor: #2F303A;
+$backgroundLightColor: #F5F4FA;
+$accentColor: #2196F3;
+$accentDarkColor: #014379;
+$iconColor: #AFB1B8;
+$cardGap: 30px;
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-  }
+}
 
 body {
-    font-family: 'Roboto', sans-serif; 
+    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     letter-spacing: 0.03em;
-    color: var(--primary-text-color);
+    color: $primaryTextColor;
 }
 
 a {
@@ -45,21 +41,28 @@ img {
     padding-left: 15px;
     padding-right: 15px;
     margin: 0 auto;
-  }
+}
 
 .section {
-      padding-top: 94px;
-      padding-bottom: 94px;
-  }
+    padding-top: 94px;
+    padding-bottom: 94px;
+    &__title {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: calc(42/36);
+        text-align: center;
+        color: $primaryTitleColor;
+        margin-bottom: 50px;
+    }
+}
 
-.section__title {
-      font-weight: 700;
-      font-size: 36px;
-      line-height: calc(42/36);
-      text-align: center;
-      color: var(--primary-title-color);
-      margin-bottom: 50px;
-  }
+.logo {
+    font-family: 'Raleway';
+    font-weight: 700;
+    font-size: 26px;
+    line-height: calc(31/26);
+    color: $accentColor;
+}
 
 textarea {
     resize: none;
@@ -70,149 +73,136 @@ textarea {
 .header {
     display: flex;
     align-items: center;
-}
-
-.logo {
-    font-family: 'Raleway';
-    font-weight: 700;
-    font-size: 26px;   
-    line-height: calc(31/26);
-    color: var(--accent-color); 
-}
-
-.header__logo {   
-    margin-right: 97px;
-}
-
-.header__logo:hover, .header__logo:focus {
-    color: var(--accent-dark-color)
+    &logo {
+        margin-right: 97px;
+        &:hover,
+        &:focus {
+            color: $accentDarkColor
+        }
+    }
+    
+    
 }
 
 .nav {
     display: flex;
-}
+    &item:not(:last-child) {
+        margin-right: 53px;
+    }
 
-.nav__item:not(:last-child) {
-    margin-right: 53px;
-}
+    &link {
+        font-family: 'Roboto';
+        font-size: 14px;
+        line-height: calc(16/14);
+        letter-spacing: 0.02em;
+        color: $primaryTextColor;
+        padding: 32px 0;
+        display: block;
+    }
 
-.nav__link{
-    font-family: 'Roboto';
-    font-size: 14px;
-    line-height: calc(16/14);
-    letter-spacing: 0.02em;
-    color: var(--primary-text-color);
-    padding: 32px 0;
-    display: block;
-}
+    &link:hover,
+    &link:focus {
+        color: $accentColor;
+    }
 
-.nav__link:hover, 
-.nav__link:focus {
-    color: var(--accent-color);
-}
-
-.nav__link--current {
-    color: var(--accent-color);
-    position: relative;
-}
-
-.nav__link--current::after {
-    content: '';
-    position: absolute;
-    height: 4px;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    background: var(--accent-color)
+    &link--current {
+        color: $accentColor;
+        position: relative;
+        &::after {
+            content: '';
+            position: absolute;
+            height: 4px;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            background: $accentColor
+        }
+    }    
 }
 
 .contact {
     display: flex;
     margin-left: auto;
-}
-
-.contact__container:not(:last-child) {
-    margin-right: 50px;
-}
-
-.contact__link {
-    font-style: normal;
-    font-size: 14px;
-    line-height: calc(16/14);
-    letter-spacing: 0.02em;
-    color: var(--secondary-text-color);
-    padding: 32px 0;
-    display: flex;
-    align-items: center;
-}
-
-.contact__link:hover,
-.contact__link:focus {
-    color: var(--accent-color)
-}
-
-.contact__icon {
-    margin-right: 10px;
-    fill: currentcolor;
+        &container:not(:last-child) {
+            margin-right: 50px;
+        }
+    
+        &link {
+            font-style: normal;
+            font-size: 14px;
+            line-height: calc(16/14);
+            letter-spacing: 0.02em;
+            color: $secondaryTextColor;
+            padding: 32px 0;
+            display: flex;
+            align-items: center;
+            &:hover,
+            &:focus {
+            color: $accentColor
+            }
+        }       
+    
+        &icon {
+            margin-right: 10px;
+            fill: currentcolor;
+        }
 }
 
 /* Hero Section*/
 
 .hero {
-    background-color: var(--background-dark-color);
-    padding: 200px 0; 
-    background-image: 
-    linear-gradient(rgba(47, 48, 58, 0.4), 
-    rgba(47, 48, 58, 0.4)), 
-    url(../images/mainpageimages/hero-background.jpg);  
+    background-color: $backgroundDarkColor;
+    padding: 200px 0;
+    background-image:
+        linear-gradient(rgba(47, 48, 58, 0.4),
+            rgba(47, 48, 58, 0.4)),
+        url(../images/mainpageimages/hero-background.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-}
+    &container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-.hero__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    &title {
+        font-weight: 900;
+        font-size: 44px;
+        line-height: calc(60/44);
+        text-align: center;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: $secondaryTitleColor;
+        display: inline-block;
+        width: 696px;
+        margin-bottom: 30px;
+    }
 
-.hero__title {
-    font-weight: 900;
-    font-size: 44px;
-    line-height: calc(60/44);
-    text-align: center;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--secondary-title-color);
-    display: inline-block;
-    width: 696px;
-    margin-bottom: 30px;
-}
-
-.hero__button {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: calc(30/16);
-    text-align: center;
-    letter-spacing: 0.06em;
-    color: var(--secondary-title-color);
-    background-color: var(--accent-color);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    cursor: pointer;
-    display: inline-block;
-    border-color: var(--accent-color);;
-    padding: 10px 20px;
-    border: none;
-}
-
-.hero__button:hover,
-.hero__button:focus {
-    color: var(--accent-color);
-    background-color: var(--accent-dark-color);
+    &button {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: calc(30/16);
+        text-align: center;
+        letter-spacing: 0.06em;
+        color: $secondaryTitleColor;
+        background-color: $accentColor;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+        border-color: $accentColor;
+        padding: 10px 20px;
+        border: none;
+        &:hover,
+        &:focus {
+            color: $accentColor;
+            background-color: $accentDarkColor;
+        }
+    }    
 }
 
 /* Hero Modal */
@@ -244,7 +234,7 @@ textarea {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: var(--secondary-title-color);
+    background: $secondaryTitleColor;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     z-index: 10;
@@ -253,7 +243,7 @@ textarea {
 .close {
     width: 30px;
     height: 30px;
-    background-color: var(--secondary-title-color);
+    background-color: $secondaryTitleColor;
     color: #000;
     display: flex;
     align-items: center;
@@ -266,8 +256,8 @@ textarea {
 
 .close:hover,
 .close:focus {
-    background-color: var(--accent-color);
-    color: var(--secondary-title-color);
+    background-color: $accentColor;
+    color: $secondaryTitleColor;
 }
 
 .close__icon {
@@ -285,7 +275,7 @@ textarea {
     font-size: 20px;
     line-height: calc(23/20);
     text-align: center;
-    color: var(--primary-title-color);
+    color: $primaryTitleColor;
     margin-bottom: 12px;
 }
 
@@ -296,17 +286,17 @@ textarea {
 
 .form__label {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
-.form__label > span {
+.form__label>span {
     margin-bottom: 4px;
     margin-top: 10px;
     font-weight: 400;
     font-size: 12px;
     line-height: calc(14/12);
     letter-spacing: 0.01em;
-    color: var(--secondary-text-color);
+    color: $secondaryTextColor;
 }
 
 .bar {
@@ -333,11 +323,11 @@ textarea {
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
-.bar__input:focus + .bar__icon {
-    fill: var(--accent-color);
+.bar__input:focus+.bar__icon {
+    fill: $accentColor;
 }
 
-.form__label > textarea {
+.form__label>textarea {
     height: 96px;
     padding: 12px 16px;
     border: 1px solid rgba(33, 33, 33, 0.2);
@@ -348,10 +338,10 @@ textarea {
 }
 
 .bar__input:focus,
-.form__label > textarea:focus {
+.form__label>textarea:focus {
     outline: none;
-    border-color: var(--accent-color);
-    color: var(--main-text-color);
+    border-color: $accentColor;
+    color: $primaryTextColor;
     font-weight: normal;
     font-size: 12px;
     line-height: calc(14 / 12);
@@ -362,7 +352,7 @@ textarea {
     cursor: pointer;
     margin-left: 12px;
     margin-right: 8px;
-    color: var(--primary-text-color);
+    color: $primaryTextColor;
     display: none;
     pointer-events: none;
 }
@@ -373,13 +363,13 @@ textarea {
     font-weight: 400;
     font-size: 14px;
     line-height: calc(24/14);
-    color: var(--secondary-text-color);
+    color: $secondaryTextColor;
 }
 
 .tos__checkbox {
     width: 15px;
     height: 15px;
-    border: 1px solid var(--primary-text-color);
+    border: 1px solid $primaryTextColor;
     border-radius: 2px;
     margin-right: 8px;
     margin-top: 5px;
@@ -394,12 +384,12 @@ textarea {
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.checkbox:checked + .tos > span > .tos__checked {
+.checkbox:checked+.tos>span>.tos__checked {
     opacity: 1;
 }
 
-.checkbox:checked + .tos > .tos__checkbox{
-    background-color: var(--accent-color);
+.checkbox:checked+.tos>.tos__checkbox {
+    background-color: $accentColor;
     border: none;
 }
 
@@ -411,12 +401,12 @@ textarea {
     display: inline-block;
     letter-spacing: 0.06em;
     color: #FFFFFF;
-    background: var(--accent-color);
+    background: $accentColor;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     width: 200px;
     height: 50px;
     border-radius: 4px;
-    border-color: var(--accent-color);
+    border-color: $accentColor;
     align-self: center;
     cursor: pointer;
     border: none;
@@ -425,16 +415,16 @@ textarea {
 /* Features */
 
 .features__title {
-     position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      border: 0;
-      padding: 0;
-      white-space: nowrap;
-      clip-path: inset(100%);
-      clip: rect(0 0 0 0);
-      overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
 .features__list {
@@ -456,7 +446,7 @@ textarea {
     height: 120px;
     justify-content: center;
     align-items: center;
-    background-color: var(--background-light-color);
+    background-color: $backgroundLightColor;
     border-radius: 4px;
     margin-bottom: 30px;
 }
@@ -466,7 +456,7 @@ textarea {
     font-size: 14px;
     line-height: calc(16/14);
     text-transform: uppercase;
-    color: var(--primary-title-color);
+    color: $primaryTitleColor;
     margin-bottom: 10px;
 }
 
@@ -474,7 +464,7 @@ textarea {
     font-weight: 400;
     font-size: 14px;
     line-height: calc(24/14);
-    color: var(--secondary-text-color);
+    color: $secondaryTextColor;
 }
 
 /* What we do */
@@ -505,7 +495,7 @@ textarea {
 }
 
 .wwd__overlay>p {
-    color: var(--secondary-title-color);
+    color: $secondaryTitleColor;
     font-weight: 700;
     font-size: 14px;
     line-height: calc(16/14);
@@ -517,17 +507,17 @@ textarea {
 /* Our Team */
 
 .ot {
-    background-color: var(--background-light-color);
+    background-color: $backgroundLightColor;
 }
 
 .ot__list {
-    background-color: var(--background-light-color);
+    background-color: $backgroundLightColor;
     display: flex;
     justify-content: center;
 }
 
 .ot__item {
-    background: var(--secondary-title-color);
+    background: $secondaryTitleColor;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 0px 0px 4px 4px;
     display: flex;
@@ -547,7 +537,7 @@ textarea {
     font-size: 16px;
     line-height: calc(19/16);
     text-align: center;
-    color: var(--primary-title-color);
+    color: $primaryTitleColor;
     margin-bottom: 10px;
 }
 
@@ -556,7 +546,7 @@ textarea {
     font-size: 16px;
     line-height: calc(19/16);
     text-align: center;
-    color: var(--secondary-text-color);
+    color: $secondaryTextColor;
     margin-bottom: 16px;
 }
 
@@ -573,18 +563,18 @@ textarea {
 .socials__link {
     width: 44px;
     height: 44px;
-    background-color: var(--secondary-title-color);
-    color: var(--icon-color);
+    background-color: $secondaryTitleColor;
+    color: $iconColor;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
 }
 
-.socialsa__link:hover,
+.socials__link:hover,
 .socials__link:focus {
-    background-color: var(--accent-color);
-    color: var(--secondary-title-color);
+    background-color: $accentColor;
+    color: $secondaryTitleColor;
 }
 
 .socials__icon {
@@ -605,19 +595,19 @@ textarea {
 .customer__link {
     width: 170px;
     height: 92px;
-    background-color: var(--secondary-title-color);
-    color: var(--icon-color);
+    background-color: $secondaryTitleColor;
+    color: $iconColor;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--icon-color);
+    border: 1px solid $iconColor;
     border-radius: 4px;
 }
 
 .customer__link:hover,
 .customer__link:focus {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
+    color: $accentColor;
+    border-color: $accentColor;
 }
 
 .customer__icon {
@@ -627,7 +617,7 @@ textarea {
 /* Footer */
 
 .footer {
-    background-color: var(--background-dark-color);
+    background-color: $backgroundDarkColor;
     height: 252px;
     display: flex;
     flex-direction: column;
@@ -643,25 +633,27 @@ textarea {
     display: block;
 }
 
-.footer__logo:hover, .footer__logo:focus {
-    color: var(--accent-dark-color);
+.footer__logo:hover,
+.footer__logo:focus {
+    color: $accentDarkColor;
 }
 
 .footer__address {
     font-style: normal;
-        width: 240px;
+    width: 240px;
 }
+
 .footer__link {
     font-weight: 400;
     font-size: 14px;
     line-height: calc(24/14);
-    color: var(--secondary-title-color);
+    color: $secondaryTitleColor;
     margin-bottom: 2px;
 }
 
 .footer__link:hover,
 .footer__link:focus {
-    color: var(--accent-color);
+    color: $accentColor;
 }
 
 .footer__contact-item:not(:last-child) {
@@ -684,7 +676,7 @@ textarea {
     line-height: calc(16/14);
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    color: var(--secondary-title-color);
+    color: $secondaryTitleColor;
     margin-bottom: 20px;
 }
 
@@ -701,7 +693,7 @@ textarea {
     width: 44px;
     height: 44px;
     background-color: rgba(255, 255, 255, 0.1);
-    color: var(--secondary-title-color);
+    color: $secondaryTitleColor;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -710,7 +702,7 @@ textarea {
 
 .fuo__link:hover,
 .fuo__link:focus {
-    background-color: var(--accent-color);
+    background-color: $accentColor;
 }
 
 .fuo__icon {
@@ -726,7 +718,7 @@ textarea {
     font-size: 14px;
     line-height: calc(16/14);
     text-transform: uppercase;
-    color: var(--secondary-title-color);
+    color: $secondaryTitleColor;
 }
 
 .subscribe__form {
@@ -755,11 +747,11 @@ textarea {
     margin-left: 12px;
     width: 200px;
     height: 50px;
-    background: var(--accent-color);
+    background: $accentColor;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     position: relative;
-    border-color: var(--accent-color);
+    border-color: $accentColor;
     cursor: pointer;
     display: flex;
     position: relative;
@@ -767,13 +759,13 @@ textarea {
     border: none;
 }
 
-.subscribe__button > span {
+.subscribe__button>span {
     margin-left: 48px;
     font-weight: 700;
     font-size: 16px;
     line-height: calc(30/16);
     letter-spacing: 0.06em;
-    color: var(--secondary-title-color);
+    color: $secondaryTitleColor;
 }
 
 .subscribe__icon {
@@ -823,18 +815,18 @@ textarea {
     letter-spacing: 0.06em;
     text-align: center;
     cursor: pointer;
-    color: var(--primary-title-color);
-    background-color: var(--background-light-color);
+    color: $primaryTitleColor;
+    background-color: $backgroundLightColor;
     border-radius: 4px;
     padding: 6px 26px;
-    border-color: var(--background-light-color);
+    border-color: $backgroundLightColor;
     border: none;
 }
 
 .button-bar__button:hover,
 .button-bar__button:focus {
-    background-color: var(--accent-color);
-    color: var(--secondary-title-color);
+    background-color: $accentColor;
+    color: $secondaryTitleColor;
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
     border-radius: 4px;
 }
@@ -844,22 +836,22 @@ textarea {
 .card {
     display: flex;
     flex-wrap: wrap;
-    margin-top: calc(-1 * var(--card-gap));
-    margin-left: calc(-1 * var(--card-gap));
+    margin-top: calc(-1 * $cardGap);
+    margin-left: calc(-1 * $cardGap);
 }
 
 .card__item {
-    flex-basis: calc(100% / 3 - var(--card-gap));
-    margin-top: var(--card-gap);
-    margin-left: var(--card-gap);
-    background-color: var(--secondary-title-color);
+    flex-basis: calc(100% / 3 - $cardGap);
+    margin-top: $cardGap;
+    margin-left: $cardGap;
+    background-color: $secondaryTitleColor;
     border: 1px solid #EEEEEE;
     position: relative;
     overflow: hidden;
 }
 
 .card__overlay {
-    color: var(--secondary-title-color);
+    color: $secondaryTitleColor;
     position: absolute;
     z-index: 1;
     background: rgba(33, 150, 243, 0.9);
@@ -888,15 +880,15 @@ textarea {
 
 .card__item:hover,
 .card__item:focus {
-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
-0px 4px 4px rgba(0, 0, 0, 0.06),
-1px 4px 6px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+        0px 4px 4px rgba(0, 0, 0, 0.06),
+        1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .card__textbox {
     position: relative;
     z-index: 2;
-    background-color: var(--secondary-title-color);
+    background-color: $secondaryTitleColor;
     display: flex;
     flex-direction: column;
 }
@@ -906,7 +898,7 @@ box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
     font-size: 18px;
     line-height: calc(36/18);
     letter-spacing: 0.06em;
-    color: var(--primary-title-color);
+    color: $primaryTitleColor;
     margin-top: 20px;
     margin-left: 24px;
 }
@@ -915,10 +907,8 @@ box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
     font-weight: 400;
     font-size: 16px;
     line-height: calc(30/16);
-    color: var(--secondary-text-color);
+    color: $secondaryTextColor;
     margin-top: 4px;
     margin-left: 24px;
     margin-bottom: 20px;
 }
-
-
