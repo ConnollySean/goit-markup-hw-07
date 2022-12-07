@@ -1,36 +1,33 @@
-@use '../abstracts/variables' as *;
+@use '../utilities/variables' as *;
 
-.container {
-    width: 1200px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 0 auto;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.section {
-    padding-top: 94px;
-    padding-bottom: 94px;
-
-    &__title {
-        font-weight: 700;
-        font-size: 36px;
-        line-height: calc(42/36);
-        text-align: center;
-        color: $primaryTitleColor;
-        margin-bottom: 50px;
-    }
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: $primaryTextColor;
 }
 
-.logo {
-    font-family: 'Raleway';
-    font-weight: 700;
-    font-size: 26px;
-    line-height: calc(31/26);
-    color: $accentColor;
+a {
+    text-decoration: none;
 }
 
-.is-hidden {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
+ul {
+    list-style: none;
 }
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+textarea {
+    resize: none;
+}
+

@@ -1,12 +1,11 @@
-@use '../abstracts/variables' as *;
+@use '../utilities/variables' as *;
 
 .header {
     display: flex;
     align-items: center;
 
     &__logo {
-        margin-right: 97px;
-
+        margin-right: 97px;        
         &:hover,
         &:focus {
             color: $accentDarkColor
